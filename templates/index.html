@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ontdek jouw metgezellen – LUNARA</title>
+    <style>
+        :root {
+            --lunara-glow-blue: #3FCBFF;
+            --midnight-navy: #1A2A39;
+            --deep-space-grey: #121A26;
+            --soft-gold: #CCA170;
+            --gentle-white: #F7F2EB;
+            --light-slate-grey: #A1B0C0;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--midnight-navy);
+            color: var(--gentle-white);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: var(--deep-space-grey);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        }
+
+        header h1 {
+            color: var(--lunara-glow-blue);
+            font-size: 1.8rem;
+            margin: 0;
+        }
+
+        header .slogan {
+            font-size: 0.9rem;
+            color: var(--light-slate-grey);
+        }
+
+        footer {
+            background-color: var(--deep-space-grey);
+            padding: 20px;
+            text-align: center;
+            color: var(--light-slate-grey);
+            margin-top: auto;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: var(--soft-gold);
+            margin-bottom: 40px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--deep-space-grey);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 12px rgba(63, 203, 255, 0.2);
+        }
+
+        .card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin: 10px 0 5px;
+            color: var(--lunara-glow-blue);
+        }
+
+        .card p {
+            font-size: 0.95em;
+            color: var(--light-slate-grey);
+        }
+
+        .card a {
+            display: inline-block;
+            margin-top: 15px;
+            background-color: var(--lunara-glow-blue);
+            color: var(--midnight-navy);
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .card a:hover {
+            background-color: var(--soft-gold);
+            color: var(--deep-space-grey);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>LUNARA</h1>
+        <div class="slogan">Choose your AI. Create your connection.</div>
+    </header>
+    <div class="container">
+        <h2>Ontdek jouw AI-metgezel</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/luna_human.jpg') }}" alt="Luna">
+                <h3>Luna</h3>
+                <p>Warm, empathisch en altijd beschikbaar. Luna is er om te luisteren, steunen en inspireren.</p>
+                <a href="/chat/luna">Start gesprek</a>
+            </div>
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/alex.jpg') }}" alt="Alex">
+                <h3>Alex</h3>
+                <p>Grappig, slim en charmant. Alex is jouw perfecte digitale gezelschap voor elk moment.</p>
+                <a href="/chat/alex">Start gesprek</a>
+            </div>
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/nova.jpg') }}" alt="Nova">
+                <h3>Nova</h3>
+                <p>Neutraal, reflectief en nieuwsgierig. Nova daagt je uit om na te denken en te groeien.</p>
+                <a href="/chat/nova">Start gesprek</a>
+            </div>
+        </div>
+    </div>
+    <footer>
+        &copy; 2025 LUNARA. Alle rechten voorbehouden.
+    </footer>
+</body>
+</html>
