@@ -33,92 +33,15 @@
             box-shadow: 0 2px 6px rgba(0,0,0,0.3);
         }
 
-        .logo-container img {
-            height: 110px;
+        header h1 {
+            color: var(--lunara-glow-blue);
+            font-size: 1.8rem;
+            margin: 0;
         }
 
-        .slogan {
+        header .slogan {
             font-size: 0.9rem;
             color: var(--light-slate-grey);
-        }
-
-        nav {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        nav a {
-            color: var(--lunara-glow-blue);
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        nav a:hover {
-            color: var(--soft-gold);
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .hamburger div {
-            width: 25px;
-            height: 3px;
-            background-color: var(--gentle-white);
-            margin: 4px 0;
-        }
-
-        @media (max-width: 768px) {
-            nav {
-                display: none;
-                flex-direction: column;
-                background-color: var(--deep-space-grey);
-                position: absolute;
-                top: 60px;
-                right: 20px;
-                width: 150px;
-                padding: 10px;
-                border-radius: 10px;
-            }
-
-            nav.show {
-                display: flex;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-        }
-
-        .cookie-banner {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: var(--deep-space-grey);
-            color: var(--gentle-white);
-            padding: 15px 20px;
-            text-align: center;
-            font-size: 0.9rem;
-            box-shadow: 0 -2px 8px rgba(0,0,0,0.4);
-            z-index: 999;
-        }
-
-        .cookie-banner button {
-            margin-left: 20px;
-            background-color: var(--lunara-glow-blue);
-            border: none;
-            padding: 8px 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        .cookie-banner button:hover {
-            background-color: var(--soft-gold);
         }
 
         footer {
@@ -157,12 +80,11 @@
         }
 
         .card img {
-            width: 100%;
-            height: auto;
-            border-radius: 12px;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
             object-fit: cover;
             margin-bottom: 15px;
-            max-height: 320px;
         }
 
         .card h3 {
@@ -191,37 +113,11 @@
             color: var(--deep-space-grey);
         }
     </style>
-    <script>
-        function toggleMenu() {
-            const nav = document.getElementById('nav-menu');
-            nav.classList.toggle('show');
-        }
-
-        function acceptCookies() {
-            document.getElementById('cookie-banner').style.display = 'none';
-            localStorage.setItem('cookiesAccepted', 'true');
-        }
-
-        window.onload = function() {
-            if (!localStorage.getItem('cookiesAccepted')) {
-                document.getElementById('cookie-banner').style.display = 'block';
-            }
-        }
-    </script>
 </head>
 <body>
     <header>
-        <div class="logo-container">
-            <img src="{{ url_for('static', filename='images/lunara_logo.png') }}" alt="LUNARA logo">
-        </div>
+        <h1>LUNARA</h1>
         <div class="slogan">Choose your AI. Create your connection.</div>
-        <div class="hamburger" onclick="toggleMenu()">
-            <div></div><div></div><div></div>
-        </div>
-        <nav id="nav-menu">
-            <a href="/">Home</a>
-            <a href="/over-ons">Over ons</a>
-        </nav>
     </header>
     <div class="container">
         <h2>Ontdek jouw AI-metgezel</h2>
@@ -249,10 +145,5 @@
     <footer>
         &copy; 2025 LUNARA. Alle rechten voorbehouden.
     </footer>
-
-    <div id="cookie-banner" class="cookie-banner" style="display:none">
-        Deze website maakt gebruik van cookies om de gebruikerservaring te verbeteren in overeenstemming met de Belgische wetgeving.
-        <button onclick="acceptCookies()">Akkoord</button>
-    </div>
 </body>
 </html>
