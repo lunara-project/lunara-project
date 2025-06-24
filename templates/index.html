@@ -159,10 +159,11 @@
         .card img {
             width: 100%;
             height: auto;
+            aspect-ratio: 2/3;
             border-radius: 12px;
             object-fit: cover;
             margin-bottom: 15px;
-            max-height: 360px;
+            max-height: none;
             box-shadow: 0 0 15px rgba(63, 203, 255, 0.3);
         }
 
@@ -248,7 +249,267 @@
         </div>
     </div>
     <footer>
-        &copy; 2025 LUNARA. Alle rechten voorbehouden.
+        &copy; 2025 LUNARA. Alle rechten voorbehouden. ProActive<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ontdek jouw metgezellen – LUNARA</title>
+    <style>
+        :root {
+            --lunara-glow-blue: #3FCBFF;
+            --midnight-navy: #1A2A39;
+            --deep-space-grey: #121A26;
+            --soft-gold: #CCA170;
+            --gentle-white: #F7F2EB;
+            --light-slate-grey: #A1B0C0;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--midnight-navy);
+            color: var(--gentle-white);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: var(--deep-space-grey);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        }
+
+        .logo-container img {
+            height: 150px;
+        }
+
+        .slogan {
+            font-size: 0.9rem;
+            color: var(--light-slate-grey);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        nav a {
+            color: var(--lunara-glow-blue);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: var(--soft-gold);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: var(--gentle-white);
+            margin: 4px 0;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+                flex-direction: column;
+                background-color: var(--deep-space-grey);
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                width: 150px;
+                padding: 10px;
+                border-radius: 10px;
+            }
+
+            nav.show {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--deep-space-grey);
+            color: var(--gentle-white);
+            padding: 15px 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            box-shadow: 0 -2px 8px rgba(0,0,0,0.4);
+            z-index: 999;
+        }
+
+        .cookie-banner button {
+            margin-left: 20px;
+            background-color: var(--lunara-glow-blue);
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .cookie-banner button:hover {
+            background-color: var(--soft-gold);
+        }
+
+        footer {
+            background-color: var(--deep-space-grey);
+            padding: 20px;
+            text-align: center;
+            color: var(--light-slate-grey);
+            margin-top: auto;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: var(--soft-gold);
+            margin-bottom: 40px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--deep-space-grey);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 12px rgba(63, 203, 255, 0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 2/3;
+            border-radius: 12px;
+            object-fit: cover;
+            margin-bottom: 15px;
+            max-height: none;
+            box-shadow: 0 0 15px rgba(63, 203, 255, 0.3);
+        }
+
+        .card h3 {
+            margin: 10px 0 5px;
+            color: var(--lunara-glow-blue);
+        }
+
+        .card p {
+            font-size: 0.95em;
+            color: var(--light-slate-grey);
+        }
+
+        .card a {
+            display: inline-block;
+            margin-top: 15px;
+            background-color: var(--lunara-glow-blue);
+            color: var(--midnight-navy);
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .card a:hover {
+            background-color: var(--soft-gold);
+            color: var(--deep-space-grey);
+        }
+    </style>
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById('nav-menu');
+            nav.classList.toggle('show');
+        }
+
+        function acceptCookies() {
+            document.getElementById('cookie-banner').style.display = 'none';
+            localStorage.setItem('cookiesAccepted', 'true');
+        }
+
+        window.onload = function() {
+            if (!localStorage.getItem('cookiesAccepted')) {
+                document.getElementById('cookie-banner').style.display = 'block';
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='images/lunara_logo.png') }}" alt="LUNARA logo">
+        </div>
+        <div class="slogan">Choose your AI. Create your connection.</div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div><div></div><div></div>
+        </div>
+        <nav id="nav-menu">
+            <a href="/">Home</a>
+            <a href="/over-ons">Over ons</a>
+        </nav>
+    </header>
+    <div class="container">
+        <h2>Ontdek jouw AI-metgezel</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/luna_human.jpg') }}" alt="Luna">
+                <h3>Luna</h3>
+                <p>Warm, empathisch en altijd beschikbaar. Luna is er om te luisteren, steunen en inspireren.</p>
+                <a href="/chat/luna">Start gesprek</a>
+            </div>
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/alex.jpg') }}" alt="Alex">
+                <h3>Alex</h3>
+                <p>Grappig, slim en charmant. Alex is jouw perfecte digitale gezelschap voor elk moment.</p>
+                <a href="/chat/alex">Start gesprek</a>
+            </div>
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/nova.jpg') }}" alt="Nova">
+                <h3>Nova</h3>
+                <p>Neutraal, reflectief en nieuwsgierig. Nova daagt je uit om na te denken en te groeien.</p>
+                <a href="/chat/nova">Start gesprek</a>
+            </div>
+        </div>
+    </div>
+    <footer>
+        &copy; 2025 LUNARA. Alle rechten voorbehouden.Proactive
+    </footer>
+
+    <div id="cookie-banner" class="cookie-banner" style="display:none">
+        Deze website maakt gebruik van cookies om de gebruikerservaring te verbeteren in overeenstemming met de Belgische wetgeving.
+        <button onclick="acceptCookies()">Akkoord</button>
+    </div>
+</body>
+</html>
+
     </footer>
 
     <div id="cookie-banner" class="cookie-banner" style="display:none">
