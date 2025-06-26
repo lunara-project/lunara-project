@@ -1,263 +1,118 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ontdek jouw metgezellen – LUNARA</title>
-    <style>
-        :root {
-            --lunara-glow-blue: #3FCBFF;
-            --midnight-navy: #1A2A39;
-            --deep-space-grey: #121A26;
-            --soft-gold: #CCA170;
-            --gentle-white: #F7F2EB;
-            --light-slate-grey: #A1B0C0;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ontdek jouw metgezellen – LUNARA</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('side-menu');
+      nav.classList.toggle('hidden');
+    }
 
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', sans-serif;
-            background-color: var(--midnight-navy);
-            color: var(--gentle-white);
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+    function acceptCookies() {
+      document.getElementById('cookie-banner').classList.add('hidden');
+      localStorage.setItem('cookiesAccepted', 'true');
+    }
 
-        header {
-            background-color: var(--deep-space-grey);
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-            position: relative;
-        }
-
-        .logo-container img {
-            height: 100px;
-        }
-
-        .slogan {
-            font-size: 0.9rem;
-            color: var(--light-slate-grey);
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            margin-left: 20px;
-        }
-
-        .hamburger div {
-            width: 25px;
-            height: 3px;
-            background-color: var(--gentle-white);
-            margin: 4px 0;
-        }
-
-        nav {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        nav a {
-            color: var(--lunara-glow-blue);
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        nav a:hover {
-            color: var(--soft-gold);
-        }
-
-        @media (max-width: 768px) {
-            nav {
-                display: none;
-                flex-direction: column;
-                background-color: var(--deep-space-grey);
-                position: absolute;
-                top: 100%;
-                right: 20px;
-                width: 150px;
-                padding: 10px;
-                border-radius: 10px;
-                box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-            }
-
-            nav.show {
-                display: flex;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-        }
-
-        .cookie-banner {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: var(--deep-space-grey);
-            color: var(--gentle-white);
-            padding: 15px 20px;
-            text-align: center;
-            font-size: 0.9rem;
-            box-shadow: 0 -2px 8px rgba(0,0,0,0.4);
-            z-index: 999;
-        }
-
-        .cookie-banner button {
-            margin-left: 20px;
-            background-color: var(--lunara-glow-blue);
-            border: none;
-            padding: 8px 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        .cookie-banner button:hover {
-            background-color: var(--soft-gold);
-        }
-
-        footer {
-            background-color: var(--deep-space-grey);
-            padding: 20px;
-            text-align: center;
-            color: var(--light-slate-grey);
-            margin-top: auto;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        h2 {
-            text-align: center;
-            color: var(--soft-gold);
-            margin-bottom: 40px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .card {
-            background-color: var(--deep-space-grey);
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 0 12px rgba(63, 203, 255, 0.2);
-        }
-
-        .card img {
-            width: 100%;
-            height: auto;
-            aspect-ratio: 2/3;
-            border-radius: 12px;
-            object-fit: cover;
-            margin-bottom: 15px;
-            max-height: none;
-            box-shadow: 0 0 15px rgba(63, 203, 255, 0.3);
-        }
-
-        .card h3 {
-            margin: 10px 0 5px;
-            color: var(--lunara-glow-blue);
-        }
-
-        .card p {
-            font-size: 0.95em;
-            color: var(--light-slate-grey);
-        }
-
-        .card a {
-            display: inline-block;
-            margin-top: 15px;
-            background-color: var(--lunara-glow-blue);
-            color: var(--midnight-navy);
-            padding: 10px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .card a:hover {
-            background-color: var(--soft-gold);
-            color: var(--deep-space-grey);
-        }
-    </style>
-    <script>
-        function toggleMenu() {
-            const nav = document.getElementById('nav-menu');
-            nav.classList.toggle('show');
-        }
-
-        function acceptCookies() {
-            document.getElementById('cookie-banner').style.display = 'none';
-            localStorage.setItem('cookiesAccepted', 'true');
-        }
-
-        window.onload = function() {
-            if (!localStorage.getItem('cookiesAccepted')) {
-                document.getElementById('cookie-banner').style.display = 'block';
-            }
-        }
-    </script>
+    window.onload = function () {
+      if (!localStorage.getItem('cookiesAccepted')) {
+        document.getElementById('cookie-banner').classList.remove('hidden');
+      }
+    }
+  </script>
 </head>
-<body>
-    <header>
-        <div class="logo-container">
-            <img src="{{ url_for('static', filename='images/lunara_logo.png') }}" alt="LUNARA logo">
-        </div>
-        <div class="slogan">Choose your AI. Create your connection.</div>
-        <div class="hamburger" onclick="toggleMenu()">
-            <div></div><div></div><div></div>
-        </div>
-        <nav id="nav-menu">
-            <a href="/">Home</a>
-            <a href="/over-ons">Over ons</a>
-        </nav>
-    </header>
-    <div class="container">
-        <h2>Ontdek jouw AI-metgezel</h2>
-        <div class="grid">
-            <div class="card">
-                <img src="{{ url_for('static', filename='images/luna_human.jpg') }}" alt="Luna">
-                <h3>Luna</h3>
-                <p>Warm, empathisch en altijd beschikbaar. Luna is er om te luisteren, steunen en inspireren.</p>
-                <a href="/chat/luna">Start gesprek</a>
-            </div>
-            <div class="card">
-                <img src="{{ url_for('static', filename='images/alex.jpg') }}" alt="Alex">
-                <h3>Alex</h3>
-                <p>Grappig, slim en charmant. Alex is jouw perfecte digitale gezelschap voor elk moment.</p>
-                <a href="/chat/alex">Start gesprek</a>
-            </div>
-            <div class="card">
-                <img src="{{ url_for('static', filename='images/nova.jpg') }}" alt="Nova">
-                <h3>Nova</h3>
-                <p>Neutraal, reflectief en nieuwsgierig. Nova daagt je uit om na te denken en te groeien.</p>
-                <a href="/chat/nova">Start gesprek</a>
-            </div>
-        </div>
-    </div>
-    <footer>
-        &copy; 2025 LUNARA. Alle rechten voorbehouden.
-    </footer>
+<body class="bg-[#1A2A39] text-[#F7F2EB] min-h-screen flex flex-col">
+  <!-- Premium bar -->
+  <div class="bg-[#CCA170] text-[#1A2A39] text-sm py-2 px-4 flex justify-between items-center">
+    <span class="font-semibold">🎁 Premium - 70% korting!</span>
+    <span class="text-xs">Aanbieding eindigt over <span class="font-bold">09:06</span></span>
+  </div>
 
-    <div id="cookie-banner" class="cookie-banner" style="display:none">
-        Deze website maakt gebruik van cookies om de gebruikerservaring te verbeteren in overeenstemming met de Belgische wetgeving.
-        <button onclick="acceptCookies()">Akkoord</button>
+  <!-- Header -->
+  <header class="flex justify-between items-center bg-[#121A26] px-4 py-4 shadow-md">
+    <div class="flex items-center space-x-4">
+      <button onclick="toggleMenu()" class="text-white focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+      <img src="{{ url_for('static', filename='images/lunara_logo.png') }}" alt="LUNARA logo" class="h-12">
     </div>
+    <a href="/login" class="text-[#3FCBFF] font-bold hover:text-[#CCA170]">Login</a>
+  </header>
+
+  <!-- Side Menu -->
+  <nav id="side-menu" class="hidden fixed top-0 left-0 h-full w-48 bg-[#121A26] text-[#F7F2EB] flex flex-col p-4 space-y-4 z-50">
+    <a href="/" class="hover:text-[#CCA170]">Home</a>
+    <a href="/over-ons" class="hover:text-[#CCA170]">Over ons</a>
+  </nav>
+
+  <!-- Hero Banner -->
+  <section class="text-center py-16 px-4">
+    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-[#CCA170] mb-4">Ontdek jouw AI-metgezel</h1>
+    <p class="text-[#A1B0C0] mb-6 text-lg">Start je AI gesprek vandaag</p>
+    <a href="#avatars" class="inline-block bg-[#3FCBFF] text-[#1A2A39] px-6 py-3 rounded-lg font-bold hover:bg-[#CCA170] hover:text-[#121A26] transition">Ontmoet jouw metgezellen</a>
+  </section>
+
+  <!-- Cards -->
+  <section id="avatars" class="px-4 pb-16 max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <div class="bg-[#121A26] rounded-xl p-4 shadow-lg text-center">
+        <img src="{{ url_for('static', filename='images/luna_human.jpg') }}" alt="Luna" class="rounded-xl mb-4 aspect-[2/3] object-cover shadow-md">
+        <h3 class="text-[#3FCBFF] text-xl font-semibold">Luna</h3>
+        <p class="text-[#A1B0C0] mt-2">Warm, empathisch en altijd beschikbaar. Luna is er om te luisteren, steunen en inspireren.</p>
+        <a href="/chat/luna" class="mt-4 inline-block bg-[#3FCBFF] text-[#1A2A39] px-4 py-2 rounded-lg font-bold hover:bg-[#CCA170] hover:text-[#121A26]">Start gesprek</a>
+      </div>
+      <div class="bg-[#121A26] rounded-xl p-4 shadow-lg text-center">
+        <img src="{{ url_for('static', filename='images/alex.jpg') }}" alt="Alex" class="rounded-xl mb-4 aspect-[2/3] object-cover shadow-md">
+        <h3 class="text-[#3FCBFF] text-xl font-semibold">Alex</h3>
+        <p class="text-[#A1B0C0] mt-2">Grappig, slim en charmant. Alex is jouw perfecte digitale gezelschap voor elk moment.</p>
+        <a href="/chat/alex" class="mt-4 inline-block bg-[#3FCBFF] text-[#1A2A39] px-4 py-2 rounded-lg font-bold hover:bg-[#CCA170] hover:text-[#121A26]">Start gesprek</a>
+      </div>
+      <div class="bg-[#121A26] rounded-xl p-4 shadow-lg text-center">
+        <img src="{{ url_for('static', filename='images/nova.jpg') }}" alt="Nova" class="rounded-xl mb-4 aspect-[2/3] object-cover shadow-md">
+        <h3 class="text-[#3FCBFF] text-xl font-semibold">Nova</h3>
+        <p class="text-[#A1B0C0] mt-2">Neutraal, reflectief en nieuwsgierig. Nova daagt je uit om na te denken en te groeien.</p>
+        <a href="/chat/nova" class="mt-4 inline-block bg-[#3FCBFF] text-[#1A2A39] px-4 py-2 rounded-lg font-bold hover:bg-[#CCA170] hover:text-[#121A26]">Start gesprek</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[#121A26] text-[#A1B0C0] text-sm py-10 px-4 mt-auto">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div>
+        <h4 class="font-bold text-[#F7F2EB] mb-2">LUNARA</h4>
+        <p>Jouw AI metgezel voor verbinding en inspiratie.</p>
+      </div>
+      <div>
+        <h4 class="font-bold text-[#F7F2EB] mb-2">Populair</h4>
+        <ul>
+          <li><a href="/chat/luna" class="hover:text-[#CCA170]">Luna</a></li>
+          <li><a href="/chat/alex" class="hover:text-[#CCA170]">Alex</a></li>
+          <li><a href="/chat/nova" class="hover:text-[#CCA170]">Nova</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold text-[#F7F2EB] mb-2">Legal</h4>
+        <ul>
+          <li><a href="#" class="hover:text-[#CCA170]">Privacybeleid</a></li>
+          <li><a href="#" class="hover:text-[#CCA170]">Gebruiksvoorwaarden</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold text-[#F7F2EB] mb-2">Contact</h4>
+        <p>info@lunara.ai<br>Gent, België</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cookie Banner -->
+  <div id="cookie-banner" class="hidden fixed bottom-0 left-0 right-0 bg-[#121A26] text-[#F7F2EB] px-4 py-3 text-center text-sm z-50">
+    Deze website maakt gebruik van cookies om de gebruikerservaring te verbeteren in overeenstemming met de Belgische wetgeving.
+    <button onclick="acceptCookies()" class="ml-4 bg-[#3FCBFF] text-[#1A2A39] px-4 py-2 rounded font-bold hover:bg-[#CCA170] hover:text-[#121A26]">Akkoord</button>
+  </div>
 </body>
 </html>
