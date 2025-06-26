@@ -26,20 +26,35 @@
 
         header {
             background-color: var(--deep-space-grey);
-            padding: 20px;
+            padding: 10px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+            position: relative;
         }
 
         .logo-container img {
-            height: 150px;
+            height: 100px;
         }
 
         .slogan {
             font-size: 0.9rem;
             color: var(--light-slate-grey);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            margin-left: 20px;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: var(--gentle-white);
+            margin: 4px 0;
         }
 
         nav {
@@ -58,30 +73,18 @@
             color: var(--soft-gold);
         }
 
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .hamburger div {
-            width: 25px;
-            height: 3px;
-            background-color: var(--gentle-white);
-            margin: 4px 0;
-        }
-
         @media (max-width: 768px) {
             nav {
                 display: none;
                 flex-direction: column;
                 background-color: var(--deep-space-grey);
                 position: absolute;
-                top: 60px;
+                top: 100%;
                 right: 20px;
                 width: 150px;
                 padding: 10px;
                 border-radius: 10px;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.3);
             }
 
             nav.show {
